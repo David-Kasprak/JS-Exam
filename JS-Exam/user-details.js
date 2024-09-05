@@ -46,7 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const button = document.createElement("button");
                                 button.innerText = 'See Post Details'
                                 button.onclick = function () {
-                                    window.location.href = `https://jsonplaceholder.typicode.com/posts/${post.id}`
+                                    // window.location.href = `https://jsonplaceholder.typicode.com/posts/${post.id}`
+                                    window.location.href = `post-details.html?postId=${post.id}`;
                                 }
 
                                 postDiv.appendChild(button);
