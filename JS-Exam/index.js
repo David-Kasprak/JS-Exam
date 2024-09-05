@@ -1,4 +1,4 @@
-const wrap = document.getElementById('wrap');
+const wrap = document.getElementById('wrapIndex');
 
 fetch('https://jsonplaceholder.typicode.com/users')
     .then((response) => response.json())

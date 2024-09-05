@@ -1,3 +1,5 @@
+const wrap = document.getElementById('wrapPost');
+
 document.addEventListener('DOMContentLoaded', () => {
     function getQueryParam (param) {
         const urlParams = new URLSearchParams(window.location.search);
@@ -6,10 +8,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const postId = getQueryParam('postId');
 
 if (postId) {
-    fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}`)
+    const postHeading = document.createElement('h3');
+    postHeading.innerText = 'Post:'
+    wrap.appendChild(postHeading)
+    const commentsHeading = document.createElement("h3");
+    commentsHeading.innerText = 'Comments:'
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
         .then((response) => response.json())
         .then((post) => {
-            console.log(post)
+        const container = document.createElement("div");
+        container.classList.add('post-container')
+            for (let item in post) {
+            const postItem = document.createElement("p");
+                postItem.innerText = `${item} - ${post[item]}`
+                container.append(postItem, commentsHeading);
+            }
+            fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
+                .then((response) => response.json())
+                .then((comments) => {
+                    for (let comment of comments) {
+                        const commentDiv = document.createElement("div");
+                        for (let item in comment) {
+                            const  commentItem = document.createElement("p");
+                            commentItem.innerText = `${item} - ${comment[item]}`
+                            commentDiv.appendChild(commentItem);
+                            wrap.appendChild(commentDiv);
+                        }
+                    }
+                })
+            wrap.append(container);
         })
 }
 })
