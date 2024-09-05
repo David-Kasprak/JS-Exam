@@ -5,7 +5,9 @@ fetch('https://jsonplaceholder.typicode.com/users')
     .then((users) => {
         for (let user of users) {
             const div = document.createElement("div");
+            div.classList.add('user-container-index')
             const button = document.createElement("button");
+            button.classList.add('button-index')
             div.innerText = `Name: ${user.name} | ID: ${user.id}`;
             button.innerText = 'See Details'
             button.onclick = function () {

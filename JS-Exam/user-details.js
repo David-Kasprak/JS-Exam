@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 wrap.appendChild(userDiv);
                 // ADDING POSTS FOR THE USER
                 const postsOfTheUserButton = document.createElement("button");
-                postsOfTheUserButton.innerText = 'Post of current user'
+                postsOfTheUserButton.innerText = 'Posts of current user'
                 userDiv.appendChild(postsOfTheUserButton);
                 postsOfTheUserButton.onclick = function () {
                     fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
