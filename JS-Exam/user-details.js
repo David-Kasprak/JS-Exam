@@ -11,24 +11,24 @@ document.addEventListener('DOMContentLoaded', () => {
             .then((response) => response.json())
             .then((user) => {
                 const userDiv = document.createElement("div");
-                userDiv.classList.add('userDiv');
+                userDiv.classList.add('user-div');
                 for (let item in user) {
-                        const div = document.createElement("div");
+                        const itemUser = document.createElement("p");
                         // CHECKING IF KEY IS OBJECT
                         if (typeof user[item] === 'object') {
-                            div.innerText = `${item} - ${JSON.stringify(user[item])}`
+                            itemUser.innerText = `${item} - ${JSON.stringify(user[item])}`
                         }
                         else {
-                            div.innerText = `${item} - ${user[item]}`;
+                            itemUser.innerText = `${item} - ${user[item]}`;
                         }
                         // CHECK END
-                        userDiv.appendChild(div);
+                        userDiv.appendChild(itemUser);
                     }
                 wrap.appendChild(userDiv);
                 // ADDING POSTS FOR THE USER
                 const postsOfTheUserButton = document.createElement("button");
                 postsOfTheUserButton.innerText = 'Posts of current user'
-                userDiv.appendChild(postsOfTheUserButton);
+                wrap.appendChild(postsOfTheUserButton);
                 postsOfTheUserButton.onclick = function () {
                     fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
                         .then((response) => response.json())
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 }
                                 postDiv.appendChild(button);
                                 allPostsDiv.appendChild(postDiv);
-                                userDiv.appendChild(allPostsDiv);
+                                wrap.appendChild(allPostsDiv);
                             }
                         })
                 }
