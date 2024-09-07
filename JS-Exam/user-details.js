@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 wrap.appendChild(userDiv);
                 // ADDING POSTS FOR THE USER
                 const postsOfTheUserButton = document.createElement("button");
-                postsOfTheUserButton.innerText = 'Posts of current user'
+                postsOfTheUserButton.innerText = 'Posts of the current user'
                 wrap.appendChild(postsOfTheUserButton);
                 postsOfTheUserButton.onclick = function () {
                     fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const postDiv = document.createElement("div");
                                 postDiv.innerText = `Post title - ${post.title}`;
                                 const button = document.createElement("button");
-                                button.innerText = 'See Post Details'
+                                button.innerText = 'See Post Details';
                                 button.onclick = function () {
                                     // window.location.href = `https://jsonplaceholder.typicode.com/posts/${post.id}`
                                     window.location.href = `post-details.html?postId=${post.id}`;
