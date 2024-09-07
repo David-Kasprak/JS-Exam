@@ -19,7 +19,7 @@ if (postId) {
         container.classList.add('post-container')
             for (let item in post) {
             const postItem = document.createElement("p");
-                postItem.innerText = `${item} - ${post[item]}`
+                postItem.innerHTML = `<span class="bold-text">${item}</span> - ${post[item]}`
                 container.appendChild(postItem);
             }
 

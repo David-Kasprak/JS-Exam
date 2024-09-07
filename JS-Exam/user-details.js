@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         const itemUser = document.createElement("p");
                         // CHECKING IF KEY IS OBJECT
                         if (typeof user[item] === 'object') {
-                            itemUser.innerText = `${item} - ${JSON.stringify(user[item])}`
+                            itemUser.innerHTML = `<span class="bold-text">${item}</span> - ${JSON.stringify(user[item])}`
                         }
                         else {
-                            itemUser.innerText = `${item} - ${user[item]}`;
+                            itemUser.innerHTML = `<span class="bold-text">${item}</span> - ${user[item]}`;
                         }
                         // CHECK END
                         userDiv.appendChild(itemUser);
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             allPostsDiv.classList.add('allPostsDiv')
                             for (let post of posts) {
                                 const postDiv = document.createElement("div");
-                                postDiv.innerText = `Post title - ${post.title}`;
+                                postDiv.innerText = `<span class="bold-text">Post title</span> - ${post.title}`;
                                 const button = document.createElement("button");
                                 button.innerText = 'See Post Details';
                                 button.onclick = function () {
