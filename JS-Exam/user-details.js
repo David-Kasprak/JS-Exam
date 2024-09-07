@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             allPostsDiv.classList.add('allPostsDiv')
                             for (let post of posts) {
                                 const postDiv = document.createElement("div");
-                                postDiv.innerText = `<span class="bold-text">Post title</span> - ${post.title}`;
+                                postDiv.innerHTML = `<span class="bold-text">Post title</span><span class="capitalized-text">${post.title}</span>`;
                                 const button = document.createElement("button");
                                 button.innerText = 'See Post Details';
                                 button.onclick = function () {

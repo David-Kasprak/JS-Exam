@@ -7,8 +7,16 @@
 p {
     padding: 5px 5px 5px 5px;
 }
+/*---TEXT FORMATTING---*/
 .bold-text {
     font-weight: bold;
+    text-transform: capitalize;
+    background: transparent;
+}
+.capitalized-text {
+    background: transparent;
+}
+.capitalized-text::first-letter {
     text-transform: capitalize;
 }
 /*/---------------------*INDEX HTML*----------------------/*/

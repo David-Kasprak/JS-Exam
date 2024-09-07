@@ -38,7 +38,7 @@ if (postId) {
                         commentsContainer.appendChild(commentDiv);
                         for (let item in comment) {
                             const  commentItem = document.createElement("p");
-                            commentItem.innerText = `${item} - ${comment[item]}`
+                            commentItem.innerHTML = `<span class="bold-text">${item}</span> - ${comment[item]}`
                             commentDiv.appendChild(commentItem);
                             wrap.appendChild(commentsContainer);
                         }
