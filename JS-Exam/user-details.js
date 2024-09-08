@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
             .then((response) => response.json())
             .then((user) => {
-                console.log(user)
-                // DELETE THE LOG ABOVE LATER -----------------------------------------------------------------------------------------
                 const userDiv = document.createElement("div");
                 userDiv.classList.add('user-div');
                 for (let item in user) {
@@ -23,10 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             const ul = document.createElement("ul");
                             for (const subItem in user[item]) {
                                 const li = document.createElement("li");
-                                li.innerHTML = `${subItem} - ${user[item][subItem]}`
+                                li.innerHTML = `<span class="capitalized-text-ul">${subItem}</span> - ${user[item][subItem]}`
                                 ul.appendChild(li);
                             if (item === 'address' && subItem === 'geo') {
-                                li.innerHTML = `${subItem} - ${JSON.stringify(user[item][subItem])}`;
+                                li.innerHTML = `<span class="capitalized-text-ul">${subItem}</span> - ${JSON.stringify(user[item][subItem])}`;
                             }
                             }
                             userDiv.appendChild(itemUser);
@@ -62,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 allPostsDiv.appendChild(postDiv);
                                 wrap.appendChild(allPostsDiv);
                             }
+                             postsOfTheUserButton.disabled = true;
                         })
                 }
             })

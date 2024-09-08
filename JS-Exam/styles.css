@@ -22,6 +22,10 @@ ul {
 .capitalized-text::first-letter {
     text-transform: capitalize;
 }
+.capitalized-text-ul {
+    background: transparent;
+    text-transform: capitalize;
+}
 /*/---------------------*INDEX HTML*----------------------/*/
 #wrapIndex {
     height: 90vh;

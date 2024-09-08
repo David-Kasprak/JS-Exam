@@ -19,10 +19,9 @@ if (postId) {
         container.classList.add('post-container')
             for (let item in post) {
             const postItem = document.createElement("p");
-                postItem.innerHTML = `<span class="bold-text">${item}</span> - ${post[item]}`
+                postItem.innerHTML = `<span class="bold-text">${item}</span> - ${post[item]}`;
                 container.appendChild(postItem);
             }
-
             wrap.append(container);
             const commentsHeading = document.createElement("h3");
             commentsHeading.innerText = 'Comments:'
