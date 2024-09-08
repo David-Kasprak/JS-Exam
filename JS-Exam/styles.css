@@ -7,6 +7,9 @@
 p {
     padding: 5px 5px 5px 5px;
 }
+ul {
+    padding-left: 20px;
+}
 /*---TEXT FORMATTING---*/
 .bold-text {
     font-weight: bold;

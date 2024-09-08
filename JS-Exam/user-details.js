@@ -10,19 +10,33 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
             .then((response) => response.json())
             .then((user) => {
+                console.log(user)
+                // DELETE THE LOG ABOVE LATER -----------------------------------------------------------------------------------------
                 const userDiv = document.createElement("div");
                 userDiv.classList.add('user-div');
                 for (let item in user) {
                         const itemUser = document.createElement("p");
                         // CHECKING IF KEY IS OBJECT
                         if (typeof user[item] === 'object') {
-                            itemUser.innerHTML = `<span class="bold-text">${item}</span> - ${JSON.stringify(user[item])}`
+                            // itemUser.innerHTML = `<span class="bold-text">${item}</span> - ${JSON.stringify(user[item])}`
+                             itemUser.innerHTML = `<span class="bold-text">${item}:</span>`;
+                            const ul = document.createElement("ul");
+                            for (const subItem in user[item]) {
+                                const li = document.createElement("li");
+                                li.innerHTML = `${subItem} - ${user[item][subItem]}`
+                                ul.appendChild(li);
+                            if (item === 'address' && subItem === 'geo') {
+                                li.innerHTML = `${subItem} - ${JSON.stringify(user[item][subItem])}`;
+                            }
+                            }
+                            userDiv.appendChild(itemUser);
+                            userDiv.appendChild(ul);
                         }
                         else {
                             itemUser.innerHTML = `<span class="bold-text">${item}</span> - ${user[item]}`;
+                            userDiv.appendChild(itemUser);
                         }
                         // CHECK END
-                        userDiv.appendChild(itemUser);
                     }
                 wrap.appendChild(userDiv);
                 // ADDING POSTS FOR THE USER
